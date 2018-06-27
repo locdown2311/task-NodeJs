@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <%- include('partes/head'); -%>
+  </head>
+  <body>
+    <header>
+        <%- include('partes/header'); -%>
+    </header>
+    <main>
+        <div class="container mt-4">
+            <div class="row">
+              <div class="col-md-4 bg-info">
+                  <form action="/add" method="POST">
+                    <div class="form-group">
+                      <label for="titulo">Tarefa</label>
+                      <input type="text" name="title" class="form-control" id="titulo" placeholder="Titulo">
+                    </div>
+                    <div class="form-group">
+                      <label for="descricao">Descrição</label>
+                      <textarea placeholder="Coloque aqui o que você precisa fazer" name="description" class="form-control" id="descricao" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success mb-2">Enviar tarefa</button>
+                  </form>
+              </div>
+      
+              <div class="col-md-7 ml-3">
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Título</th>
+                          <th scope="col">Descrição</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Ação</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% tasks.forEach(function(tasks) { %>
+                          <tr>
+                              <td><%= tasks._id %></td>
+                              <td><%= tasks.title %> </td>
+                              <td><%= tasks.description %> </td>
+                              <td><%= tasks.status %> </td>
+                              <td>
+                                <a href="/finish/<%= tasks._id %>">Concluir</a>
+                              </td>
+                          </tr>
+                        <% }); %>
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+          </div>
+    </main>
+    <footer>
+        <%- include('partes/footer'); -%>
+    </footer>
+    
+  </body>
+</html>
