@@ -25,16 +25,6 @@ router.post("/add", function(req, res, next) {
 });
 
 
-router.delete("/delete/:id", function(req, res, next) {
-  var id = req.params.id;
-  var target = {id : id}
-  model.deleteOne(target, function (err , task) {
-    if(err)
-      throw err;
-  });
-  res.redirect('/');
-});
-
 router.get("/finish/:id", function(req, res, next) {
   var id = req.params.id;
   model.findById(id, function (err , task) {
