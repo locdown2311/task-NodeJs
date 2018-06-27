@@ -27,11 +27,11 @@
                   <form action="/add" method="post">
                     <div class="form-group">
                       <label for="titulo" class="col-form-label">Título:</label>
-                      <input type="text" name="title" class="form-control" id="titulo">
+                      <input type="text" required name="title" class="form-control" id="titulo">
                     </div>
                     <div class="form-group">
                       <label for="conteudo" class="col-form-label">Descrição:</label>
-                      <textarea class="form-control" id="conteudo" name="description"></textarea>
+                      <textarea class="form-control" required id="conteudo" name="description"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger mb-2" data-dismiss="modal">Fechar</button>
@@ -72,6 +72,7 @@
                   </td>
                   <td>
                     <a href="/finish/<%= tasks._id %>">Concluir</a>
+                    <a href="/delete/<%= tasks._id %>">Deletar</a>
                   </td>
                 </tr>
                 <% }); %>
