@@ -1,84 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <%- include('partes/head'); -%>
-  </head>
-  <body>
-    <header>
-        <%- include('partes/header'); -%>
-    </header>
-    <main>
-        <div class="container mt-4">
-            <div class="row">
-              <div class="col-md-4 bg-info">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adicionarTarefa">
-                      Cadastrar
-                    </button>
-                  <div class="modal fade" id="adicionarTarefa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Nova tarefa</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form action="/add" method="post">
-                              <div class="form-group">
-                                <label for="titulo" class="col-form-label">Título:</label>
-                                <input type="text" name="title" class="form-control" id="titulo">
-                              </div>
-                              <div class="form-group">
-                                <label for="conteudo" class="col-form-label">Descrição:</label>
-                                <textarea class="form-control" id="conteudo" name="description"></textarea>
-                              </div>
-                            </form>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-danger mb-2" data-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-success mb-2">Confirmar</button>
-                          </div>
-                        </div>
-                      </div>
+<head>
+  <%- include('partes/head'); -%>
+</head>
+<body>
+  <header>
+    <%- include('partes/header'); -%>
+  </header>
+  <main>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-4">
+          <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#adicionarTarefa">
+            Cadastrar
+          </button>
+          <div class="modal fade" id="adicionarTarefa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Nova tarefa</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="/add" method="post">
+                    <div class="form-group">
+                      <label for="titulo" class="col-form-label">Título:</label>
+                      <input type="text" name="title" class="form-control" id="titulo">
                     </div>
-              </div>
-      
-
-              
-              <div class="col-md-7 ml-3">
-                  
-                    <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Ação</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <% tasks.forEach(function(tasks) { %>
-                              <tr>
-                                  <td><%= tasks._id %></td>
-                                  <td><%= tasks.title %> </td>
-                                  <td><%= tasks.description %> </td>
-                                  <td><%= tasks.status %> </td>
-                                  <td>
-                                    <a href="/finish/<%= tasks._id %>">Concluir</a>
-                                  </td>
-                              </tr>
-                            <% }); %>
-                        </tbody>
-                      </table>
+                    <div class="form-group">
+                      <label for="conteudo" class="col-form-label">Descrição:</label>
+                      <textarea class="form-control" id="conteudo" name="description"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger mb-2" data-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-success mb-2" >Confirmar</button>
+                </div>
               </div>
             </div>
           </div>
-    </main>
-    <footer>
-        <%- include('partes/footer'); -%>
-    </footer>
-  </body>
+        </div>
+
+        <div class="col-md-7 ml-3">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Título</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Status</th>
+                <th scope="col">Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% tasks.forEach(function(tasks) { %>
+                <tr>
+                  <td>
+                    <%= tasks._id %>
+                  </td>
+                  <td>
+                    <%= tasks.title %>
+                  </td>
+                  <td>
+                    <%= tasks.description %>
+                  </td>
+                  <td>
+                    <%= tasks.status %>
+                  </td>
+                  <td>
+                    <a href="/finish/<%= tasks._id %>">Concluir</a>
+                  </td>
+                </tr>
+                <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <%- include('partes/footer'); -%>
+  </footer>
+</body>
 </html>
