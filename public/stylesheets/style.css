@@ -1,5 +1,10 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #f8f9fa !important;
+body{
+  padding-top: 80px;
 }
-
+.nav-item{
+  padding: 0 20px;
+}
+.nav-item:hover{
+  border-bottom: solid;
+  transition: .1s;
+}
