@@ -8,3 +8,10 @@ body{
   border-bottom: solid;
   transition: .1s;
 }
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}

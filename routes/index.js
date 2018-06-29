@@ -5,7 +5,7 @@ var model = require("./../model/tasks")();
 /* GET home page. */
 router.get("/", function(req, res, next) {
   var query = {status : "false"}
-  let banco = model.find(query, function(err, tasks) {
+  var banco = model.find(query, function(err, tasks) {
     if (err) {
       throw err;
     }
