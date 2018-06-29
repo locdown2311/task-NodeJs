@@ -68,7 +68,12 @@
                     <%= tasks.description %>
                   </td>
                   <td>
-                    <%= tasks.status %>
+                    <%if(tasks.status == false){%>
+                      Não concluido
+                    <%}else {%>
+                      Concluído
+                    <%}%>
+                    
                   </td>
                   <td>
                     <a href="/finish/<%= tasks._id %>">Concluir</a>
